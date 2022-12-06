@@ -60,6 +60,6 @@ public class EmployeeRepository {
     }
 
     public List<Employee> queryPage(int page, int pageSize) {
-        return employees.subList((page-1)*pageSize,page*pageSize-1);
+        return employees.subList((page-1)*pageSize,page*pageSize);
     }
 }
