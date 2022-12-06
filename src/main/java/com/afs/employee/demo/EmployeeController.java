@@ -1,10 +1,7 @@
 package com.afs.employee.demo;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +19,18 @@ public class EmployeeController {
     public List<Employee> getAll() {
         return employeeRepository.findAll();
     }
+
+    @GetMapping("/{id}")
+    public List<Employee> getEmployeeById(@PathVariable int id){
+        return employeeRepository.findEmployeeById(id);
+    }
+//    @GetMapping(params = {""})
+
+    @GetMapping(params = {"gender"})
+    public List<Employee> getEmployeeByGender(@RequestParam String gender){
+        return employeeRepository.findEmployeeByGender(gender);
+    }
+
 }
    /* @GetMapping("/id}"}
 public Employee getById(@PathVariable Integer){
