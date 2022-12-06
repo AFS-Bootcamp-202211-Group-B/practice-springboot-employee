@@ -47,4 +47,9 @@ public class EmployeeRepository {
     public void delete(Employee existingEmployee) {
         employees.remove(existingEmployee);
     }
+
+    public List<Employee> findByPage(Integer page,Integer pageSize) {
+        int end = pageSize*page > employees.size()? pageSize*page-((pageSize*page)%employees.size()):pageSize*page;
+        return employees.subList(pageSize*(page-1),end);
+    }
 }

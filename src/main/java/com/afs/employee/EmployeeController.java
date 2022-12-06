@@ -51,4 +51,9 @@ public class EmployeeController {
         Employee existingEmployee = employeeRepository.findById(id);
         employeeRepository.delete(existingEmployee);
     }
+
+    @GetMapping(params = {"page","pageSize"})
+    public List<Employee> getPageOfEmployees(@RequestParam Integer page, @RequestParam Integer pageSize){
+        return employeeRepository.findByPage(page, pageSize);
+    }
 }
