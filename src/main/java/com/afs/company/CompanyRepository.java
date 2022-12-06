@@ -42,4 +42,8 @@ public class CompanyRepository {
                 .orElse(1);
         return nextId + 1;
     }
+
+    public void delete(Company existingCompany) {
+        companies.remove(existingCompany);
+    }
 }
