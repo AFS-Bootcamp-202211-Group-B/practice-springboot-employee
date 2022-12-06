@@ -1,5 +1,6 @@
 package com.afs.company;
 
+import com.afs.employee.Employee;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,5 +19,10 @@ public class CompanyController {
     @GetMapping
     public List<Company> getAll(){
         return companyRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Company getByID(@PathVariable int id){
+        return companyRepository.findById(id);
     }
 }

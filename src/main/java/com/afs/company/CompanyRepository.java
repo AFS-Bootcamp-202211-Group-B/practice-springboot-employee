@@ -1,5 +1,6 @@
 package com.afs.company;
 
+import com.afs.employee.Employee;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -16,5 +17,9 @@ public class CompanyRepository {
     }
     public List<Company> findAll() {
         return this.companies;
+    }
+
+    public Company findById(int id) {
+        return companies.stream().filter(company -> company.getId() == id).findFirst().get();
     }
 }
