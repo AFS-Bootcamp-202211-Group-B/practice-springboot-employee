@@ -24,4 +24,8 @@ public class EmployeeRepository {
     public List<Employee> findEmployeeById(int id) {
         return employees.stream().filter(employee->employee.getId()==id).collect(Collectors.toList());
     }
+
+    public List<Employee> findEmployeeByGender(String gender) {
+        return employees.stream().filter(employee-> employee.getGender().equals(gender)).collect(Collectors.toList());
+    }
 }
