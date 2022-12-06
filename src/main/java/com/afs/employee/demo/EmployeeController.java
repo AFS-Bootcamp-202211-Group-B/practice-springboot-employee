@@ -50,14 +50,9 @@ public class EmployeeController {
          employeeRepository.delete(id);
     }
 
-}
-   /* @GetMapping("/id}"}
-public Employee getById(@PathVariable Integer){
-    return null;
-}
+    @GetMapping(params = {"page", "pageSize"})
+    public List<Employee> getEmployeeByGender(@RequestParam int page, int pageSize){
+        return employeeRepository.queryPage(page, pageSize);
+    }
 
-//
-@GetMapping(params = {""})
-Public Employee GETbYiD(@RequestParam Integer){
-    return null;
-}*/
+}
