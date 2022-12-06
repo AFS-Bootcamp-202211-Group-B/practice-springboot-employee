@@ -4,11 +4,11 @@ package com.afs.employee.demo;
     public class Employee {
         private Integer  id;
         private String name;
-        private int age;
+        private Integer age;
         private String gender;
         private Integer salary;
 
-        public Employee(Integer  id, String name, int age, String gender, Integer salary) {
+        public Employee(Integer  id, String name, Integer age, String gender, Integer salary) {
             this.id = id;
             this.name = name;
             this.age = age;
@@ -32,7 +32,7 @@ package com.afs.employee.demo;
             this.name = name;
         }
 
-        public int getAge() {
+        public Integer getAge() {
             return age;
         }
 

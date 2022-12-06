@@ -35,7 +35,9 @@ public class EmployeeRepository {
     }
 
     public List<Employee> findByGender(String gender) {
-        return employeeList.stream().filter(employee -> employee.getGender().equals(gender)).collect(Collectors.toList());
+        return employeeList.stream()
+                .filter(employee -> employee.getGender().equals(gender))
+                .collect(Collectors.toList());
     }
 
     public List<Employee> displayEmployee(Integer page, Integer pageSize) {
@@ -46,7 +48,10 @@ public class EmployeeRepository {
     }
 
     public Employee create(Employee employee) {
-        Integer nextId = employeeList.stream().mapToInt(Employee::getId).max().orElse(0) + 1;
+        Integer nextId = employeeList.stream()
+                .mapToInt(Employee::getId)
+                .max()
+                .orElse(0) + 1;
         employee.setId(nextId);
         employeeList.add(employee);
         return employee;

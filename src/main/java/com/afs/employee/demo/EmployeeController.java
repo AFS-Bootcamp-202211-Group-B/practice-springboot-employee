@@ -48,6 +48,9 @@ public class EmployeeController {
         if(updatedEmployee.getSalary() != null){
             employee.setSalary(updatedEmployee.getSalary());
         }
+        if(updatedEmployee.getAge() != null){
+            employee.setAge(updatedEmployee.getAge());
+        }
         return employeeRepository.save(id,employee);
     }
 
