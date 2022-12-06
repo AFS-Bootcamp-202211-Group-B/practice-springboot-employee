@@ -1,6 +1,7 @@
 package com.afs.employee.demo;
 
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -30,4 +31,27 @@ public class EmployeeController {
     public  List<Employee> getByGender(@RequestParam String gender){
         return employeeRepository.findByGender(gender);
     }
+
+    @PostMapping()
+    @ResponseStatus(HttpStatus.CREATED)
+    public Employee addEmployee(@RequestBody Employee employee){
+        return employeeRepository.create(employee);
+    }
+    @PutMapping("/{id}")
+    public Employee updateEmployee(@PathVariable Integer id, @RequestBody Employee employee){
+        return employeeRepository.update(id, employee);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public Employee deleteEmployee(@PathVariable Integer id){
+        return employeeRepository.delete(id);
+    }
+
+    @GetMapping(params ={"page","pageSize"})
+    public  List<Employee> pageQuery(@RequestParam Integer page, @RequestParam Integer pageSize){
+
+        return employeeRepository.pageQuery(page, pageSize);
+    }
+
 }
