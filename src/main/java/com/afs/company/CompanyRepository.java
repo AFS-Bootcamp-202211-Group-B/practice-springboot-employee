@@ -22,4 +22,9 @@ public class CompanyRepository {
     public Company findById(int id) {
         return companies.stream().filter(company -> company.getId() == id).findFirst().get();
     }
+
+    public List<Company> findByPage(Integer page, Integer pageSize) {
+        int end = pageSize*page > companies.size()? pageSize*page-((pageSize*page)%companies.size()):pageSize*page;
+        return companies.subList(pageSize*(page-1),end);
+    }
 }
