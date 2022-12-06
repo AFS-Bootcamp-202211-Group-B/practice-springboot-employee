@@ -21,12 +21,41 @@ public class EmployeeRepository {
         return employees;
     }
 
-    public List<Employee> findEmployeeById(int id) {
-        return employees.stream().filter(employee->employee.getId()==id).collect(Collectors.toList());
+    public Employee findEmployeeById(Integer id) {
+        return employees.stream().filter(employee->employee.getId()==id).findFirst().orElseThrow(NoEmployeeFoundException::new) ;
     }
 
     public List<Employee> findEmployeeByGender(String gender) {
         return employees.stream().filter(employee-> employee.getGender().equals(gender)).collect(Collectors.toList());
     }
 
+    public Employee create(Employee employee) {
+        Integer id = generateNextId();
+        employee.setId(id);
+        employees.add(employee);
+        return employee;
+    }
+
+    private Integer generateNextId() {
+        int nextId = employees.stream()
+                .mapToInt(employee -> employee.getId())
+                .max()
+                .orElse(1);
+        return nextId + 1;
+    }
+
+    public Employee update(Integer id, Employee employee) {
+        Employee existingEmployee = findEmployeeById(id);
+        if (employee.getAge() != null){
+            existingEmployee.setAge(employee.getAge());
+        }
+        if(employee.getSalary()!= null){
+            existingEmployee.setSalary(employee.getSalary());
+        }
+        return existingEmployee;
+    }
+
+    public void delete(Integer id) {
+        employees.removeIf(employee -> employee.getId()==id);
+    }
 }
