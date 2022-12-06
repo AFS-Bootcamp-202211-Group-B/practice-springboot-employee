@@ -1,12 +1,11 @@
 package com.afs.company;
 
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("/companies")
 public class CompanyController {
 
 
@@ -14,5 +13,10 @@ public class CompanyController {
 
     public CompanyController(CompanyRepository companyRepository) {
         this.companyRepository = companyRepository;
+    }
+
+    @GetMapping
+    public List<Company> getAll(){
+        return companyRepository.findAll();
     }
 }
