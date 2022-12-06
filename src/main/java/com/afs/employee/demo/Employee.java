@@ -2,13 +2,13 @@ package com.afs.employee.demo;
 
 
     public class Employee {
-        private String id;
+        private Integer  id;
         private String name;
         private int age;
         private String gender;
         private Integer salary;
 
-        public Employee(String id, String name, int age, String gender, Integer salary) {
+        public Employee(Integer  id, String name, int age, String gender, Integer salary) {
             this.id = id;
             this.name = name;
             this.age = age;
@@ -16,11 +16,11 @@ package com.afs.employee.demo;
             this.salary = salary;
         }
 
-        public String getId() {
+        public Integer  getId() {
             return id;
         }
 
-        public void setId(String id) {
+        public void setId(int id) {
             this.id = id;
         }
 
@@ -55,4 +55,6 @@ package com.afs.employee.demo;
         public void setSalary(Integer salary) {
             this.salary = salary;
         }
+
+
     }
