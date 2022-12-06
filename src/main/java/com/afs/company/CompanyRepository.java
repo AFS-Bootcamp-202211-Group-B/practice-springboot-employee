@@ -27,4 +27,19 @@ public class CompanyRepository {
         int end = pageSize*page > companies.size()? pageSize*page-((pageSize*page)%companies.size()):pageSize*page;
         return companies.subList(pageSize*(page-1),end);
     }
+
+    public Company create(Company company) {
+        Integer id = generateNextId();
+        company.setId(id);
+        companies.add(company);
+        return company;
+    }
+
+    private Integer generateNextId() {
+        int nextId = companies.stream()
+                .mapToInt(company -> company.getId())
+                .max()
+                .orElse(1);
+        return nextId + 1;
+    }
 }
