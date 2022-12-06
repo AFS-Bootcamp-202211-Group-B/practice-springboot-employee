@@ -43,4 +43,8 @@ public class EmployeeRepository {
                 .orElse(1);
         return nextId + 1;
     }
+
+    public void delete(Employee existingEmployee) {
+        employees.remove(existingEmployee);
+    }
 }
