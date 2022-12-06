@@ -3,9 +3,9 @@ package com.afs.employee;
 public class Employee {
     private int id;
     private String name;
-    private int age;
+    private Integer age;
     private String gender;
-    private int salary;
+    private Integer salary;
     public Employee(int id, String name, int age, String gender, int salary) {
         this.id = id;
         this.name = name;
@@ -42,7 +42,7 @@ public class Employee {
         return name;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -50,7 +50,7 @@ public class Employee {
         return gender;
     }
 
-    public int getSalary() {
+    public Integer getSalary() {
         return salary;
     }
 }
