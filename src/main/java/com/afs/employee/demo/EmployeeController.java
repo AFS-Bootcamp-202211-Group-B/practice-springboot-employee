@@ -25,7 +25,6 @@ public class EmployeeController {
     public Employee getEmployeeById(@PathVariable int id){
         return employeeRepository.findEmployeeById(id);
     }
-//    @GetMapping(params = {""})
 
     @GetMapping(params = {"gender"})
     public List<Employee> getEmployeeByGender(@RequestParam String gender){
@@ -42,6 +41,12 @@ public class EmployeeController {
     @PutMapping("/{id}")
     public Employee updateEmployee(@PathVariable int id,@RequestBody Employee newEmployee){
         return employeeRepository.updateEmployee(id,newEmployee);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteEmployee(@PathVariable int id){
+        employeeRepository.deleteEmployee(id);
     }
 
 
