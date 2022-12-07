@@ -1,11 +1,10 @@
-package com.afs.employee.demo;
+package com.afs.employee;
 
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Scanner;
 
 @RestController
 @RequestMapping("/employees")

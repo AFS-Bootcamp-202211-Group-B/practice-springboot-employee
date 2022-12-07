@@ -1,11 +1,7 @@
-package com.afs.employee.demo;
+package com.afs.employee;
 
 
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,5 +61,9 @@ public class EmployeeRepository {
 
     public List<Employee> findByGender(String gender){
         return employees.stream().filter(employee -> employee.getGender().equals(gender)).collect(Collectors.toList());
+    }
+
+    public void clearAll(){
+        employees.clear();
     }
 }
