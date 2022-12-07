@@ -52,4 +52,8 @@ public class EmployeeRepository {
         int end = pageSize*page > employees.size()? pageSize*page-((pageSize*page)%employees.size()):pageSize*page;
         return employees.subList(pageSize*(page-1),end);
     }
+
+    public void cleanAll() {
+        employees.clear();
+    }
 }
